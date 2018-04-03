@@ -22,7 +22,11 @@ public class Division implements Operation {
     public double calculate(ArrayList args) {
         double delenie = Double.parseDouble(args.get(1).toString());
         for (int i = 2; i < args.size(); i++) {
-            delenie /= Double.parseDouble(args.get(i).toString());
+            if (!args.get(i).equals("0")) {
+                delenie /= Double.parseDouble(args.get(i).toString());
+            } else {
+                throw new ArithmeticException();
+            }
         }
         return delenie;
     }
